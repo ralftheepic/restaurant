@@ -1,0 +1,15 @@
+{
+  "name": "restraunt-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run desktop\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "desktop": "wait-on http://localhost:3000 && cd desktop-app && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "wait-on": "^7.0.1"
+  }
+}

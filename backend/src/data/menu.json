@@ -1,0 +1,67 @@
+[
+  { "id": "1", "name": "Masala Dosa", "price": 60, "category": "breakfast" },
+  { "id": "2", "name": "Plain Dosa", "price": 50, "category": "breakfast" },
+  { "id": "3", "name": "Onion Uthappa", "price": 55, "category": "breakfast" },
+  { "id": "4", "name": "Misal Pav", "price": 45, "category": "breakfast" },
+  { "id": "5", "name": "Usal Pav", "price": 40, "category": "breakfast" },
+  { "id": "6", "name": "Upma", "price": 30, "category": "breakfast" },
+  { "id": "7", "name": "Sheera", "price": 30, "category": "breakfast" },
+  { "id": "8", "name": "Poha", "price": 25, "category": "breakfast" },
+
+  { "id": "9", "name": "Egg Omelette", "price": 40, "category": "egg" },
+  { "id": "10", "name": "Egg Burji", "price": 45, "category": "egg" },
+  { "id": "11", "name": "Boiled Eggs", "price": 25, "category": "egg" },
+
+  { "id": "12", "name": "Grilled Sandwich", "price": 60, "category": "sandwich" },
+  { "id": "13", "name": "Veg Club Sandwich", "price": 70, "category": "sandwich" },
+  { "id": "14", "name": "Cheese Toast", "price": 50, "category": "sandwich" },
+
+  { "id": "15", "name": "ABC Juice", "price": 70, "category": "juice" },
+  { "id": "16", "name": "Mosambi Juice", "price": 60, "category": "juice" },
+  { "id": "17", "name": "Carrot Juice", "price": 50, "category": "juice" },
+  { "id": "18", "name": "Lemon Honey Water", "price": 30, "category": "juice" },
+  { "id": "19", "name": "Pineapple Juice", "price": 55, "category": "juice" },
+
+  { "id": "20", "name": "Chicken Mughlai", "price": 180, "category": "mughlai" },
+  { "id": "21", "name": "Paneer Handi", "price": 160, "category": "mughlai" },
+  { "id": "22", "name": "Butter Chicken", "price": 200, "category": "mughlai" },
+  { "id": "23", "name": "Chicken Angara", "price": 190, "category": "mughlai" },
+
+  { "id": "24", "name": "Prawns Masala", "price": 220, "category": "seafood" },
+  { "id": "25", "name": "Fish Curry", "price": 200, "category": "seafood" },
+  { "id": "26", "name": "Tandoori Prawns", "price": 250, "category": "seafood" },
+  { "id": "27", "name": "Pomfret Fry", "price": 270, "category": "seafood" },
+  { "id": "28", "name": "Surmai Curry", "price": 260, "category": "seafood" },
+
+  { "id": "29", "name": "Tandoori Roti", "price": 15, "category": "breads" },
+  { "id": "30", "name": "Butter Naan", "price": 25, "category": "breads" },
+  { "id": "31", "name": "Garlic Naan", "price": 30, "category": "breads" },
+  { "id": "32", "name": "Lachha Paratha", "price": 35, "category": "breads" },
+  { "id": "33", "name": "Kulcha", "price": 25, "category": "breads" },
+
+  { "id": "34", "name": "Veg Pulao", "price": 100, "category": "rice" },
+  { "id": "35", "name": "Jeera Rice", "price": 80, "category": "rice" },
+  { "id": "36", "name": "Chicken Biryani", "price": 150, "category": "rice" },
+  { "id": "37", "name": "Prawns Biryani", "price": 200, "category": "rice" },
+  { "id": "38", "name": "Mutton Biryani", "price": 220, "category": "rice" },
+
+  { "id": "39", "name": "Paneer Tikka", "price": 120, "category": "starter" },
+  { "id": "40", "name": "Chicken Lollipop", "price": 140, "category": "starter" },
+  { "id": "41", "name": "Veg Manchurian", "price": 110, "category": "starter" },
+  { "id": "42", "name": "Fish Fingers", "price": 160, "category": "starter" },
+
+  { "id": "43", "name": "Veg Hakka Noodles", "price": 100, "category": "chinese" },
+  { "id": "44", "name": "Chicken Fried Rice", "price": 120, "category": "chinese" },
+  { "id": "45", "name": "Paneer Chilli", "price": 130, "category": "chinese" },
+  { "id": "46", "name": "Schezwan Noodles", "price": 110, "category": "chinese" },
+
+  { "id": "47", "name": "Gulab Jamun", "price": 40, "category": "dessert" },
+  { "id": "48", "name": "Rasgulla", "price": 45, "category": "dessert" },
+  { "id": "49", "name": "Ice Cream Scoop", "price": 50, "category": "dessert" },
+  { "id": "50", "name": "Fruit Salad", "price": 60, "category": "dessert" },
+
+  { "id": "51", "name": "Virgin Mojito", "price": 90, "category": "mocktail" },
+  { "id": "52", "name": "Blue Lagoon", "price": 95, "category": "mocktail" },
+  { "id": "53", "name": "Fruit Punch", "price": 85, "category": "mocktail" },
+  { "id": "54", "name": "Strawberry Cooler", "price": 90, "category": "mocktail" }
+]

@@ -24,9 +24,14 @@ model MenuItem {
 model Order {
   id        Int      @id @default(autoincrement())
   items     Json
-  total     Float
-  tableNo   String?
-  platform  String?
-  status    String   @default("pending")
+  total     Int
+  platform  String
+  tableNo   String?   // optional
+  token     String?   // 🔧 ADD THIS LINE
+  status    String
   createdAt DateTime @default(now())
+  gstPercentage Int     @default(18) 
+  gstAmount     Int      @default(0) 
 }
+
+

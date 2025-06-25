@@ -1,41 +1,47 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@prisma/client';
-import { createOrder, getOrderById } from '../controllers/orderController';
+// Import all necessary controller functions
+import {
+  createOrder,
+  getOrderById,
+  updateOrderStatus,
+  getAllOrders,
+  deleteOrder,
+  generateInvoice,
+  downloadInvoice
+} from '../controllers/orderController';
 import { authenticateToken } from '../middleware/authMiddleware';
 
 const router = express.Router();
-const prisma = new PrismaClient();
 
-// 🔹 Create order
-router.post('/', (req: Request, res: Response, next: NextFunction) => {
+// 🔹 Get all orders (requires authentication)
+router.get('/', authenticateToken, (req: Request, res: Response, next: NextFunction) => {
+  Promise.resolve(getAllOrders(req, res)).catch(next);
+});
+
+// 🔹 Create order (requires authentication)
+router.post('/', authenticateToken, (req: Request, res: Response, next: NextFunction) => {
   Promise.resolve(createOrder(req, res)).catch(next);
 });
 
-// 🔹 Get order by ID
-router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
+// 🔹 Get order by ID (requires authentication)
+router.get('/:id', authenticateToken, (req: Request, res: Response, next: NextFunction) => {
   Promise.resolve(getOrderById(req, res)).catch(next);
 });
 
-// 🔹 Update order status (auth required)
-router.patch('/:id/status', authenticateToken, async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const id = parseInt(req.params.id);
-    const { status } = req.body;
-
-    const order = await prisma.order.update({
-      where: { id },
-      data: { status },
-    });
-
-    // ✅ Emit to all connected clients
-    const io = req.app.get('io');
-    io.emit('order-updated', order); // 👈 this triggers update on frontend
-
-    res.json(order);
-  } catch (error) {
-    next(error);
-  }
+// 🔹 Update order status or details (requires authentication)
+// THIS HAS BEEN CHANGED FROM PATCH TO PUT to match frontend request for item editing
+router.put('/:id/status', authenticateToken, (req: Request, res: Response, next: NextFunction) => {
+  Promise.resolve(updateOrderStatus(req, res)).catch(next);
 });
 
+// 🔹 Delete order (requires authentication)
+router.delete('/:id', authenticateToken, (req: Request, res: Response, next: NextFunction) => {
+  Promise.resolve(deleteOrder(req, res)).catch(next);
+});
+
+// 🚀 Download Invoice (requires authentication)
+router.get('/:orderId/invoice/download', authenticateToken, (req: Request, res: Response, next: NextFunction) => {
+  Promise.resolve(downloadInvoice(req, res)).catch(next);
+});
 
 export default router;

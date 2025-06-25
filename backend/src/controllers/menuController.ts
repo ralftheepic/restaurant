@@ -1,14 +1,33 @@
 import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import fs from 'fs';
+import path from 'path';
 
-export const getMenu = async (_req: Request, res: Response) => {
-  const items = await prisma.menuItem.findMany();
-  res.json(items);
+const menuPath = path.join(__dirname, '../data/menu.json');
+
+export const getMenu = (_req: Request, res: Response): void => {
+  try {
+    const data = fs.readFileSync(menuPath, 'utf-8');
+    const menu = JSON.parse(data);
+    res.json(menu);
+  } catch (err) {
+    console.error('Failed to load menu:', err);
+    res.status(500).json({ error: 'Failed to load menu' });
+  }
 };
 
-export const addMenuItem = async (req: Request, res: Response) => {
-  const { name, price, category } = req.body;
-  const newItem = await prisma.menuItem.create({ data: { name, price, category } });
-  res.status(201).json(newItem);
+export const addMenuItem = (req: Request, res: Response): void => {
+  try {
+    const newItem = req.body;
+    const data = fs.readFileSync(menuPath, 'utf-8');
+    const menu = JSON.parse(data);
+
+    newItem.id = String(menu.length + 1);
+    menu.push(newItem);
+
+    fs.writeFileSync(menuPath, JSON.stringify(menu, null, 2));
+    res.status(201).json(newItem);
+  } catch (err) {
+    console.error('Failed to add menu item:', err);
+    res.status(500).json({ error: 'Failed to add menu item' });
+  }
 };
